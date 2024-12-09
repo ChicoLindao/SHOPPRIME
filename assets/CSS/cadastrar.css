@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
+);
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tudo {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 700px;
+    display: flex;
+    height: 700px;
+}
+
+.tudo i {
+    position: absolute;
+    transition: 0.5s;
+    inset: 0;
+    border: 2px solid #fff;
+}
+
+.tudo i:nth-child(1) {
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: animate 6s linear infinite;
+}
+
+.tudo i:nth-child(2) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate 4s linear infinite;
+}
+
+.tudo i:nth-child(3) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate2 10s linear infinite;
+}
+
+.tudo:hover i {
+    border: 6px solid var(--clr);
+    filter: drop-shadow(0 0 20px var(--clr));
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.conectar {
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    width: 300px;
+    justify-content: center;
+    height: 100%;
+    display: flex;
+}
+.conectar h2 {
+    color: #fff;
+    font-size: 2em;
+}
+
+.conectar .conectoresdecomputadores {
+    width: 100%;
+    position: relative;
+}
+
+.conectar .conectoresdecomputadores input {
+    color: #fff;
+    box-shadow: none;
+    border-radius: 40px;
+    outline: none;
+    position: relative;
+    background: #111;
+    border: 2px solid #fff;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 12px 20px;
+}
+
+.conectar .conectoresdecomputadores input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg,#0000FF, #9400D3);
+    width: 100%;
+}
+
+.conectar .conectoresdecomputadores input[type="submit"]:hover {
+    opacity: 0.6;
+    transition: opacity 0.2s linear;
+}
+
+.conectar .links {
+    justify-content: center;
+    padding: 0 20px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.conectar .links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.links:hover{
+    opacity: 0.6;
+    transition: opacity 0.2s linear;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #dfdfdf;
+}
+
+  .botaodearquivo::before {
+    content: 'Selecione sua foto';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    background-color: #111;
+    color: #999999;
+    border-radius: 40px;
+  }
+
+  .botaodearquivo::-webkit-file-upload-button {
+    visibility: hidden;
+    
+  }
+
+.botaodearquivo:hover::before {
+    border-color: white;
+}
+
+.botaodearquivo:active::before {
+ background: -webkit-linear-gradient(top, #888, #444);
+}   

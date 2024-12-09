@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+body > main {
+    border: 2px solid #ccc;
+    box-shadow: 4px 4px #ccc;
+    background: #111;
+    padding: 0 30px 30px;
+    margin: 5%;
+}
+
+body > main .titulodapagina {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    padding: 50px 0;
+}
+
+body > main .conteudo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+body > main .conteudo section {
+    -webkit-box-flex: 1;
+    flex: 1;
+    -ms-flex: 1;
+}
+
+body > main .conteudo aside {
+        min-width: 250px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead tr {
+    border-bottom: 3px solid #999;
+}
+
+table thead tr th {
+    text-transform: uppercase;
+    color: white;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+table tbody tr {
+    border-bottom: 3px solid #999;
+}
+
+table tbody tr:last-child {
+    border: 0;
+}
+
+table tbody tr td {
+    color: white;
+    padding: 30px 0;
+}
+
+.produto .informacoes {
+    margin-left: 20px;
+}
+
+.produto .informacoes .name {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.produto .informacoes .category {
+    color: #999;
+}
+
+.testecomx {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #999;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 0 0;
+    min-width: 60px;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 30px;
+}
+
+aside {
+  margin-left: 30px;
+}
+
+aside .testeserio {
+    background: #222;
+    color: white;
+    margin-bottom: 15px;
+    border: 1px solid #222;
+}
+
+aside .testeserio header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #111;
+    font-size: 18px;
+}
+
+aside .testeserio .informacoes {
+    font-size: 16px;
+    padding: 20px;
+}
+
+aside .testeserio .informacoes > div {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 10px;
+    color: white;
+}
+
+aside .testeserio .informacoes > div:last-child {
+    margin: 0;
+}
+
+aside .testeserio .informacoes button { 
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #28a745;
+    background: transparent;
+    border: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 16px;
+}
+
+aside .testeserio footer {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #222;
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+aside > button { 
+    border: 0;
+    background: #28a745;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 15px 0;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+aside > button:hover { 
+    background: #3bc55b;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+}
+   
+button, button span {
+    transition: 200ms;
+}
+   
+button .text {
+    transform: translateX(35px);
+    font-weight: bold;
+    color: white;
+}
+   
+button .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+}
+   
+button svg {
+    fill: #eee;
+    width: 15px;
+}
+   
+button:hover .text {
+    color: transparent;
+}
+   
+button:hover .icon {
+    width: 150px;
+    transform: translateX(0);
+    border-left: none;
+}
+   
+button:focus {
+    outline: none;
+}
+   
+button:active .icon svg {
+    transform: scale(0.8);
+}
+
+nav .logo {
+    text-align: left;
+    color: #fff;
+    font-weight: 700;
+    font-size: 220%;
+    padding: 20px;
+  } 
+
+  nav a {
+    color: black;
+    text-decoration: none;
+  }
+
+
+  nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 67%;
+  }
+    
+
+
+  
+  
+  nav .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 220%;
+  }
+  
+  ul {
+    list-style: none;
+    text-transform: uppercase;
+  }
+  
+  nav ul {
+    gap: 0 10%;
+    font-size: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  
+  .buttonalto {
+    --button_radius: 0.45em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    font-size: 17px;
+  }
+  
+  .buttonalto {
+    display: block;
+    box-sizing: border-box;
+    padding: 0.75em 3.4em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+  }
+  
+  button:hover .buttonalto {
+    transform: translateY(-0.33em);
+    
+  }
+  
+  button:active .buttonalto {
+    transform: translateY(0);
+  }
+
+  .usandoagorahoje {
+    background-color: black;
+  }
