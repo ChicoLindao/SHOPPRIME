@@ -12,38 +12,41 @@ Y8,                    `8b
 Copyright © 2024 SHOPPRIME. All rights reserved.
 -->
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/CSS/styles.css">
-    <link rel="stylesheet" href="assets/CSS/cadastrar.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/CSS/styles.css" />
+    <link rel="stylesheet" href="assets/CSS/cadastrar.css" />
     <script type="text/javascript" src="assets/JS/scripts.js" async></script>
     <script type="text/javascript" src="assets/JS/cadastrar.js" async></script>
-    <link rel="Website Icon" type="png" href="img/LOGO.png">
+    <link rel="Website Icon" type="png" href="img/LOGO.png" />
     <title>Entre</title>
 </head>
+
 <body>
     <div class="tudo">
-        <i style="--clr:#90ee90"></i>
-        <i style="--clr:#ff00ff"></i>
-        <i style="--clr:#0000FF"></i>
-        <div class="conectar">
+        <i style="--clr: #90ee90"></i>
+        <i style="--clr: #ff00ff"></i>
+        <i style="--clr: #0000ff"></i>
+        <form id="form-register" class="conectar">
             <h2>Crie sua conta</h2>
-            <img src="https://voxnews.com.br/wp-content/uploads/2017/04/unnamed.png"/>
-            <input class="botaodearquivo" type="file" title="none"  />
+            <img src="https://voxnews.com.br/wp-content/uploads/2017/04/unnamed.png" />
+            <input class="botaodearquivo" type="file" title="none" />
             <div class="conectoresdecomputadores">
-                <input id="nome" type="text" placeholder="Nome">
+                <input id="name" name="name" type="text" placeholder="Nome" />
             </div>
             <div class="conectoresdecomputadores">
-                <input id="email" type="text" placeholder="E-mail">
+                <input id="email" name="email" type="text" placeholder="E-mail" />
             </div>
-        <div class="conectoresdecomputadores">
-            <input id="senha" type="password" placeholder="Senha">
-        </div>
             <div class="conectoresdecomputadores">
-                <input id="submit" type="submit" value="Criar">
-        </div>
-        </div>
+                <input id="password" name="password" type="password" placeholder="Senha" />
+            </div>
+            <div class="conectoresdecomputadores">
+                <input id="submit" type="submit" value="Criar" />
+            </div>
+        </form>
     </div>
 </body>
+
 </html>

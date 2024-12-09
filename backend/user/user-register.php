@@ -12,6 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$name, $email, $hashedPassword]);
 
-    echo json_encode(['message' => 'Usuário registrado com sucesso']);
+    echo json_encode([
+        'status' => 'true',
+        'message' => 'Conta criada com sucesso!'
+    ]);
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
-$host = ''; // Endereço do banco de dados
-$dbname = ''; // Nome do banco de dados
-$username = ''; // Usuário do banco de dados
+$host = 'localhost'; // Endereço do banco de dados
+$dbname = 'shopprime'; // Nome do banco de dados
+$username = 'root'; // Usuário do banco de dados
 $password = ''; // Senha do banco de dados
 
 try {
