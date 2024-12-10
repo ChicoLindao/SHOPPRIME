@@ -50,9 +50,10 @@ var listaGiftCard = [
     valor: 110,
   },
 ];
-function reescrever() {
+function reescrever(list) {
   lista.innerHTML = "";
-  listaGiftCard.forEach((item, index) => {
+  if(!list) list = listaGiftCard; 
+  list.forEach((item, index) => {
     lista.innerHTML += `
         <div class="produtos">
            <img src="${item.imagem}">
@@ -119,14 +120,25 @@ const formzinho = document.getElementById("formzinho");
 
 formzinho.addEventListener("submit", (e) => {
   e.preventDefault();
-  listaGiftCard.push({
-    id: 9,
-    imagem: "img/mobilelegends.jpg",
-    nome: nome.value,
-    valor: valor.value,
-  });
-  reescrever();
-  console.log(listaGiftCard);
+
+  fetch("./backend/product/products-insert.php", {
+    method: "POST",
+    body: {}
+  })
+  .then(res => res.json())
+  .then(res => {
+    reescrever(res);
+  })
+
+
+  // listaGiftCard.push({
+  //   id: 9,
+  //   imagem: "img/mobilelegends.jpg",
+  //   nome: nome.value,
+  //   valor: valor.value,
+  // });
+  // reescrever();
+  // console.log(listaGiftCard);
 });
 
 function excluirItem(index) {
