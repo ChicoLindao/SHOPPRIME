@@ -1,5 +1,5 @@
 <?php
-include_once '../config.php';
+include_once '../../config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $id = $_GET['id'];

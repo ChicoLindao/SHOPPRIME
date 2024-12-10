@@ -9,7 +9,7 @@ submit.addEventListener("click", () => {
   formData.append("email", document.getElementById("email").value)
   formData.append("password", document.getElementById("password").value)
   
-  fetch("./backend/user/user-login.php", {
+  fetch(URL_API + 'user/user-login.php', {
     method: "POST",
     body: formData,
   })

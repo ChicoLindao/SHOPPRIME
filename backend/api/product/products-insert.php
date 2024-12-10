@@ -1,6 +1,6 @@
 <?php
-include_once '../config.php';
-include_once '../utils.php';
+include_once '../../config.php';
+include_once '../../utils.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

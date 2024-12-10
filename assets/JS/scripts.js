@@ -8,3 +8,5 @@ function mensagem(text) {
         msg.remove();
     }, 1000)
 }
+
+const URL_API = "./backend/api/";

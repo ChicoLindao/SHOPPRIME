@@ -121,7 +121,7 @@ const formzinho = document.getElementById("formzinho");
 formzinho.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  fetch("./backend/product/products-insert.php", {
+  fetch(URL_API + 'product/products-insert.php', {
     method: "POST",
     body: {}
   })
