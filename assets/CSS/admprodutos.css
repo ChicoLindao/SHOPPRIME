@@ -48,8 +48,8 @@ nav {
     padding: 20px;
     gap: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 180px;
-    height: 320px;
+    width: 185px;
+    height: 300px;
     background: var(--bg-color);
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
@@ -72,12 +72,14 @@ nav {
     align-items: center;
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
     
   .precoprodutos {
     font-weight: 500;
     color: var(--font-color);
     font-size: 20px;
+    padding-left: 45px;
   }
     
   .nomeprodutos {
@@ -270,11 +272,9 @@ nav {
   
   .admcadastrar{
     justify-content: center;
-    display: grid;
+    display: flex;
+    flex: 1;
   }
-
-
-
 
   .enviarimagem {
     height: 200px;
@@ -286,11 +286,11 @@ nav {
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    border: 2px dashed #e8e8e8;
-    background-color: #212121;
+    border: 2px dashed green;
+    background-color: white ;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0px 48px 35px -48px #e8e8e8;
+    box-shadow: 0px 48px 35px -48px white
     
   }
   
@@ -302,7 +302,7 @@ nav {
   
   .enviarimagem .icon svg {
     height: 80px;
-    fill: #e8e8e8;
+    fill: green;
   }
   
   .enviarimagem .text {
@@ -313,7 +313,7 @@ nav {
   
   .enviarimagem .text span {
     font-weight: 400;
-    color: #e8e8e8;
+    color: green;
   }
   
   .enviarimagem input {
@@ -598,4 +598,121 @@ nav {
   
   .delete-button:focus {
     outline: none;
+  }
+
+  .containerChavao {
+    display: flex;
+    margin-right: 100px;
+  }
+
+  .titulo2 {
+    font-size: 28px;
+    color: blue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+  
+  .titulo2::before,.titulo2::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: blue;
+  }
+  
+  .titulo2::before {
+    width: 18px;
+    height: 18px;
+    background-color: blue;
+  }
+  
+  .titulo2::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+
+  .enviarimagem2 {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed blue;
+    background-color: white ;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px white
+    
+  }
+  
+  .enviarimagem2 .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .enviarimagem2 .icon svg {
+    height: 80px;
+    fill: blue;
+  }
+  
+  .enviarimagem2 .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .enviarimagem2 .text span {
+    font-weight: 400;
+    color: blue;
+  }
+  
+  .enviarimagem2 input {
+    display: none;
+  }
+
+
+
+  .formulario label .input2 {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+  }
+  
+  .formulario label .input2 + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .formulario label .input2:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+  }
+  
+  .formulario label .input2:focus + span,.formulario label .input2:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  
+  .formulario label .input2:valid + span {
+    color: blue;
   }

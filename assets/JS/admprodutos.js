@@ -61,11 +61,9 @@ function reescrever(list) {
             <hr class="divisordeprodutos">
             <div class="produtospart2">
                 <div class="precoprodutos"><span>$</span>${item.valor}</div>
-
-                <button class="delete-button" onclick="excluirItem(${index})">
-                ␡
-              </button>
             </div>
+            <div>
+        </div>
         </div>`;
   });
 }
