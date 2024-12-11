@@ -23,7 +23,7 @@ document.getElementById("form-register").addEventListener("submit", (e) => {
         return;
     }
 
-    fetch(URL_API + 'user/user-register.php"', {
+    fetch(URL_API + 'user/user-register.php', {
         method: "POST",
         body: formData,
       })

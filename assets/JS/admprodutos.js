@@ -112,22 +112,35 @@ botoesCarrinho.forEach((botao, i) => {
   });
 });
 
+const enviar = document.getElementById("enviar");
+
 const nome = document.getElementById("nome");
 const valor = document.getElementById("valor");
-const enviar = document.getElementById("enviar");
+const categoria = document.getElementById("categoria")
+
 const file = document.getElementById("file");
 const formzinho = document.getElementById("formzinho");
 
 formzinho.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const nome = document.getElementById("nome");
+  const valor = document.getElementById("valor");
+  const categoria = document.getElementById("categoria")
+
+  let formData = new FormData();
+  formData.append("name", nome.value)
+  formData.append("price", valor.value)
+  formData.append("category", categoria.value)
+  formData.append("product-img", file.files[0])
+
   fetch(URL_API + 'product/products-insert.php', {
     method: "POST",
-    body: {}
+    body: formData
   })
   .then(res => res.json())
   .then(res => {
-    reescrever(res);
+    console.log(res)
   })
 
 
@@ -146,3 +159,18 @@ function excluirItem(index) {
   reescrever();
   console.log(listaGiftCard);
 }
+
+
+
+function renderCategories() {
+  fetch(URL_API + 'product/categories-list.php')
+  .then(res => res.json())
+  .then(res => {
+    categoria.innerHTML = "<option disabled selected>Selecione uma opção</option>";
+    res.forEach(item => {
+      categoria.innerHTML += `<option value="${item.id}">${item.name}</option>`
+    })
+  })
+}
+
+renderCategories()
