@@ -1,174 +1,168 @@
-let lista = document.getElementById("section-gift-card");
+const lista = document.getElementById("section-gift-card");
 
-var listaGiftCard = [
-  {
-    id: 1,
-    imagem: "img/leagueoflegends.jpg",
-    nome: "Lol",
-    valor: 100,
-  },
-  {
-    id: 2,
-    imagem: "img/valorant.jpg",
-    nome: "Valorant",
-    valor: 240,
-  },
-  {
-    id: 3,
-    imagem: "img/wildrift.jpg",
-    nome: "Wild Rift",
-    valor: 120,
-  },
-  {
-    id: 4,
-    imagem: "img/pubgmobile.jpg",
-    nome: "PUBG Mobile",
-    valor: 50,
-  },
-  {
-    id: 5,
-    imagem: "img/googleplay.jpg",
-    nome: "Google Play",
-    valor: 30,
-  },
-  {
-    id: 6,
-    imagem: "img/apple.jpg",
-    nome: "Apple",
-    valor: 50,
-  },
-  {
-    id: 7,
-    imagem: "img/xboxlivegold.jpg",
-    nome: "Xbox Live Gold",
-    valor: 200,
-  },
-  {
-    id: 8,
-    imagem: "img/netflix.jpg",
-    nome: "Netflix",
-    valor: 110,
-  },
+const listaGiftCard = [
+  { id: 1, imagem: "img/leagueoflegends.jpg", nome: "Lol", valor: 100 },
+  { id: 2, imagem: "img/valorant.jpg", nome: "Valorant", valor: 240 },
+  { id: 3, imagem: "img/wildrift.jpg", nome: "Wild Rift", valor: 120 },
+  { id: 4, imagem: "img/pubgmobile.jpg", nome: "PUBG Mobile", valor: 50 },
+  { id: 5, imagem: "img/googleplay.jpg", nome: "Google Play", valor: 30 },
+  { id: 6, imagem: "img/apple.jpg", nome: "Apple", valor: 50 },
+  { id: 7, imagem: "img/xboxlivegold.jpg", nome: "Xbox Live Gold", valor: 200 },
+  { id: 8, imagem: "img/netflix.jpg", nome: "Netflix", valor: 110 },
 ];
-function reescrever(list) {
-  lista.innerHTML = "";
-  if(!list) list = listaGiftCard; 
-  list.forEach((item, index) => {
-    lista.innerHTML += `
-        <div class="produtos">
-           <img src="${item.imagem}">
-            <div class="nomeprodutos">${item.nome}</div>
-            <hr class="divisordeprodutos">
-            <div class="produtospart2">
-                <div class="precoprodutos"><span>$</span>${item.valor}</div>
-            </div>
-            <div>
-        </div>
-        </div>`;
-  });
-}
-reescrever();
-//localStorage.removeItem("carrinho");
-const botoesCarrinho = document.querySelectorAll(".botaoprodutos");
 
-botoesCarrinho.forEach((botao, i) => {
-  botao.addEventListener("click", () => {
-    let id = listaGiftCard[i].id;
-    let nome = listaGiftCard[i].nome;
-    let valor = listaGiftCard[i].valor;
+const categoriaNovo = document.getElementById("categoria");
+const categoriaEditar = document.getElementById("categoria-editar");
+const selectEdit = document.getElementById("select-product-edit");
 
-    let carrinho = JSON.parse(localStorage.getItem("carrinho"));
-    if (carrinho == null) {
-      carrinho = [];
-    }
+refresh();
 
-    var total = 1;
-    var gift = {
-      id,
-      nome,
-      valor,
-      quant: total,
-    };
 
-    function retorna() {
-      let bool = false;
-      carrinho.forEach((item) => {
-        if (item.id == id) {
-          item["quant"] += 1;
-          bool = true;
-        }
-      });
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      return bool;
-    }
+const nomeEditar = document.getElementById("nome-editar");
+const valorEditar = document.getElementById("valor-editar");
 
-    if (!retorna()) {
-      carrinho.push(gift);
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    }
-    mensagem(`${nome} adicionado ao carrinho!`);
-  });
+selectEdit.addEventListener("change", (e) => {
+  fetch(URL_API + `product/product-by-id.php?id=${e.target.value}`)
+  .then(res => res.json())
+  .then(res => {
+    nomeEditar.value = res.name;
+    valorEditar.value = res.price;
+    categoriaEditar.value = res.id_category;
+    console.log(res)
+  })
 });
 
-const enviar = document.getElementById("enviar");
-
-const nome = document.getElementById("nome");
-const valor = document.getElementById("valor");
-const categoria = document.getElementById("categoria")
-
-const file = document.getElementById("file");
-const formzinho = document.getElementById("formzinho");
-
-formzinho.addEventListener("submit", (e) => {
+const formEditar = document.getElementById("formzinho-editar");
+formEditar.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const nome = document.getElementById("nome");
-  const valor = document.getElementById("valor");
-  const categoria = document.getElementById("categoria")
+  if(e.submitter.id == "alterar") {
+    let formData = new FormData();
+    formData.append("id", selectEdit.value);
+    formData.append("name", nomeEditar.value);
+    formData.append("price", valorEditar.value);
+    formData.append("category", categoriaEditar.value);
+  
+    fetch(URL_API + "product/product-update.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        mensagem(res.message)
+        if(res.status) {
+          e.target.reset()
+          refresh()
+        }
+      });
+  }
 
-  let formData = new FormData();
-  formData.append("name", nome.value)
-  formData.append("price", valor.value)
-  formData.append("category", categoria.value)
-  formData.append("product-img", file.files[0])
+  if(e.submitter.id == "remover") {
+    deletarItem(selectEdit.value)
+  }
 
-  fetch(URL_API + 'product/products-insert.php', {
+});
+
+function deletarItem(id) {
+  const formData = new FormData();
+  formData.append('id', id);
+  fetch(URL_API + "product/product-delete.php", {
     method: "POST",
     body: formData
   })
   .then(res => res.json())
   .then(res => {
-    console.log(res)
+    mensagem(res.message)
+    if(res.status) {
+      refresh();
+    }
   })
+}
 
+////////////////////////
+//////////// CRIAR NOVO
+////////////////////////
 
-  // listaGiftCard.push({
-  //   id: 9,
-  //   imagem: "img/mobilelegends.jpg",
-  //   nome: nome.value,
-  //   valor: valor.value,
-  // });
-  // reescrever();
-  // console.log(listaGiftCard);
+const formNovo = document.getElementById("formzinho");
+formNovo.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome").value;
+  const valor = document.getElementById("valor").value;
+  const file = document.getElementById("file").files[0];
+
+  const formData = new FormData();
+  formData.append("name", nome);
+  formData.append("price", valor);
+  formData.append("category", categoriaNovo.value);
+  formData.append("product-img", file);
+
+  fetch(URL_API + "product/products-insert.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      mensagem(res.message)
+      if(res.status) {
+        e.target.reset()
+        refresh()
+      }
+    });
 });
 
-function excluirItem(index) {
-  listaGiftCard.splice(index, 1);
-  reescrever();
-  console.log(listaGiftCard);
+////////////////////////
+//////////// FUNÇÕES ATUALIZA TELA
+////////////////////////
+
+function renderCategories(element) {
+  fetch(URL_API + "product/categories-list.php")
+    .then((res) => res.json())
+    .then((res) => {
+      element.innerHTML =
+        "<option disabled selected>Escolha a categoria</option>";
+      res.forEach((item) => {
+        element.innerHTML += `<option value="${item.id}">${item.name}</option>`;
+      });
+    });
 }
 
+function renderProducts() {
+  fetch(URL_API + "product/products-list.php")
+  .then((res) => res.json())
+  .then((products) => {
+    console.log(products);
 
-
-function renderCategories() {
-  fetch(URL_API + 'product/categories-list.php')
-  .then(res => res.json())
-  .then(res => {
-    categoria.innerHTML = "<option disabled selected>Selecione uma opção</option>";
-    res.forEach(item => {
-      categoria.innerHTML += `<option value="${item.id}">${item.name}</option>`
-    })
-  })
+    lista.innerHTML = "";
+    products.forEach((item) => {
+      lista.innerHTML += `
+        <div class="produtos">
+          <img src="${item.img}" alt="${item.name}" />
+          <div class="nomeprodutos">${item.name}</div>
+          <hr class="divisordeprodutos">
+          <div class="produtospart2">
+            <div class="precoprodutos"><span>$</span>${item.price}</div>
+          </div>
+        </div>`;
+    });
+  });
 }
 
-renderCategories()
+function renderEditSelect() {
+  fetch(URL_API + "product/products-list.php")
+    .then((res) => res.json())
+    .then((res) => {
+      selectEdit.innerHTML =
+        "<option disabled selected>Escolha o produto</option>";
+      res.forEach((item) => {
+        selectEdit.innerHTML += `<option value="${item.id}">${item.name}</option>`;
+      });
+    });
+}
+
+function refresh() {
+  renderProducts()
+  renderCategories(categoriaNovo);
+  renderCategories(categoriaEditar);
+  renderEditSelect();
+}

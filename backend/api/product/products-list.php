@@ -5,8 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $sql = "SELECT * FROM products";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $products = $stmt->fetchAll();
 
-    echo json_encode($products);
+    while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+        $response[] = $row;
+    }
+    echo json_encode($response);
 }
 ?>

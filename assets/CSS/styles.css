@@ -16,7 +16,7 @@ body {
 .mensagem {
   z-index: 2;
   height: fit-content;
-  position: absolute;
+  position: fixed;
   width: fit-content;
   text-align: center;
   top: 25px;

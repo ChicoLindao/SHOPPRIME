@@ -63,7 +63,7 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
     </nav>
     <section id="section-gift-card">
         <div class="produtos">
-            <img src="img/xcox.png">
+            <img src="./backend/storage/products/3dc2ff80b7e90380b9d550e11837bdae.png">
             <div class="nomeprodutos">Xcox game pepsi</div>
             <hr class="divisordeprodutos">
             <div class="produtospart2">
@@ -116,7 +116,7 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
                 <span>Preço</span>
             </label>
             <label>
-                <select id="nome" type="text" class="input">
+                <select id="categoria" type="text" class="input">
                     <option id="1">Escolha a categoria</option>
                     <option id="2">Celular</option>
                     <option id="3">Assinaturas</option>
@@ -129,13 +129,13 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
         </form>
     </div>
 
-    <form id="formzinho" class="formulario">
+    <form id="formzinho-editar" class="formulario">
         <p class="titulo2">Alterar Produto </p>
         <p class="message">Altere as informações do produto </p>
         <div class="flex">
         </div>
         <label>
-            <select id="nome" type="text" class="input2">
+            <select id="select-product-edit" type="text" class="input2">
                 <option id="1">Escolha o produto</option>
                 <option id="2">Criar novo</option>
                 <option id="3">Lol</option>
@@ -149,7 +149,7 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
             </select>
             <span>Selecionar produto</span>
         </label>
-        <label for="file" class="enviarimagem2">
+        <!-- <label for="file" class="enviarimagem2">
             <div class="icon">
                 <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -165,23 +165,19 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
                 <span>Clique para adicionar imagem</span>
             </div>
             <input id="file" type="file">
-        </label>
+        </label> -->
         <label>
-            <input id="nome" type="text" class="input2">
+            <input id="nome-editar" type="text" class="input2">
             <span>Nome</span>
         </label>
 
         <label>
-            <input id="valor" type="number" class="input2">
+            <input id="valor-editar" type="number" class="input2">
             <span>Preço</span>
         </label>
         <label>
-            <select id="nome" type="text" class="input2">
-                <option id="1">Escolha a categoria</option>
-                <option id="2">Celular</option>
-                <option id="3">Assinaturas</option>
-                <option id="4">Jogos para celulares</option>
-                <option id="5">Jogos para computadores</option>
+            <select id="categoria-editar" type="text" class="input2">
+
             </select>
             <span>Selecionar categoria</span>
         </label>

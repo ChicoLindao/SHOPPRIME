@@ -6,17 +6,18 @@ function saveImage($file, $destination) {
     $tmpFile = $file["tmp_name"];
     $fileExtension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
     $targetDirectory = __DIR__ . "/storage/$destination/";
+    $responseDirectory = "./backend/storage/$destination/";
     
     if (!is_dir($targetDirectory)) {
         mkdir($targetDirectory, 0777, true);
     }
     
-    $targetFile = $targetDirectory . md5(microtime()) . "." . $fileExtension;
+    $targetFile = md5(microtime()) . "." . $fileExtension;
 
     checkFile($file);
 
-    if (move_uploaded_file($tmpFile, $targetFile)) {
-        return $targetFile; 
+    if (move_uploaded_file($tmpFile, $targetDirectory . $targetFile)) {
+        return $responseDirectory . $targetFile; 
     }
 
     return false;
