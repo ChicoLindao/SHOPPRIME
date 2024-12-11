@@ -446,53 +446,6 @@ nav {
     font-size: 220%;
     margin-left: 140px;
   }
-
-
-
-
-  .formulario2 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    position: relative;
-  }
-  
-  .titulo2 {
-    font-size: 28px;
-    color: red;
-    font-weight: 600;
-    letter-spacing: -1px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-  }
-  
-  .titulo2::before,.titulo2::after {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    left: 0px;
-    background-color: red;
-  }
-  
-  .titulo2::before {
-    width: 18px;
-    height: 18px;
-    background-color: red;
-  }
-  
-  .titulo2::after {
-    width: 18px;
-    height: 18px;
-    animation: pulse 1s linear infinite;
-  }
   
   .mensagem {
     color: rgba(88, 87, 87, 0.822);
@@ -508,39 +461,6 @@ nav {
   
   .formulario label {
     position: relative;
-  }
-  
-  .formulario2 label .input2 {
-    width: 100%;
-    padding: 10px 10px 20px 10px;
-    outline: 0;
-    border: 1px solid rgba(105, 105, 105, 0.397);
-    border-radius: 10px;
-  }
-  
-  .formulario2 label .input2 + span {
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    color: grey;
-    font-size: 0.9em;
-    cursor: text;
-    transition: 0.3s ease;
-  }
-  
-  .formulario2 label .input2:placeholder-shown + span {
-    top: 15px;
-    font-size: 0.9em;
-  }
-  
-  .formulario2 label .input2:focus + span,.formulario2 label .input2:valid + span {
-    top: 30px;
-    font-size: 0.7em;
-    font-weight: 600;
-  }
-  
-  .formulario2 label .input2:valid + span {
-    color: red;
   }
   
   .enviar2 {
