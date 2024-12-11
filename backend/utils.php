@@ -1,18 +1,27 @@
 <?php
 
 function saveImage($file, $destination) {
+    if (!$file) return false;
+
     $tmpFile = $file["tmp_name"];
     $fileExtension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
-    $targetFile = __DIR__ . "/storage/$destination/" . md5(microtime()) . "." . $fileExtension;
+    $targetDirectory = __DIR__ . "/storage/$destination/";
+    
+    if (!is_dir($targetDirectory)) {
+        mkdir($targetDirectory, 0777, true);
+    }
+    
+    $targetFile = $targetDirectory . md5(microtime()) . "." . $fileExtension;
 
     checkFile($file);
 
-    if(move_uploaded_file($tmpFile, $targetFile)) {
+    if (move_uploaded_file($tmpFile, $targetFile)) {
         return $targetFile; 
     }
 
     return false;
 }
+
 
 function checkFile($file) {
     $supportedExtension = ["jpg", "jpeg", "png"];

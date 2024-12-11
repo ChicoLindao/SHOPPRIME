@@ -23,15 +23,9 @@ CREATE TABLE `products` (
     `name` VARCHAR(255) NOT NULL,
     `price` DECIMAL(10,2) NOT NULL,
     `img` VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `categories_products` (
     `id_category` INT NOT NULL,
-    `id_product` INT NOT NULL,
-    PRIMARY KEY (`id_category`, `id_product`),
     FOREIGN KEY (`id_category`) REFERENCES `categories`(`id`),
-    FOREIGN KEY (`id_product`) REFERENCES `products`(`id`)
+    PRIMARY KEY (`id`)
 );
 
 -- CREATE TABLE `pedidos` (
@@ -50,8 +44,15 @@ CREATE TABLE `categories_products` (
 --     FOREIGN KEY (`id_produto`) REFERENCES `produtos`(`id`)
 -- );
 
-INSERT INTO `users` (`email`, `name`, `password`) VALUES ('adm@adm.com','Administrador', 'senha');
 
+-- INSERT INTO `users` (`email`, `name`, `password`) VALUES ('adm@adm.com','Administrador', '');
+
+
+INSERT INTO `categories` (id, name) VALUES
+(1, "Celular"),
+(2, "Assinaturas"),
+(3, "Jogos para Celular"),
+(4, "Jogos para Computador");
 
 -- INSERT INTO `categorias_produtos` (`id_categoria`, `id_produto`)
 -- VALUES (1, 1); -- Isso associaria o produto com ID 1 à categoria com ID 1

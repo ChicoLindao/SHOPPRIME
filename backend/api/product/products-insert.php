@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $imgFile = $_FILES['product-img'];
 
-    // $category_id = $post['category_id'];
+    $category_id = $post['category'];
 
     $imgDestination = saveImage($imgFile, "products");
 
@@ -33,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $sql = "INSERT INTO products (name, price, img) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO products (name, price, img, id_category) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$name, $price, $imgDestination]);
+    $stmt->execute([$name, $price, $imgDestination, $category_id]);
 
     echo json_encode([
         'status' => true,
