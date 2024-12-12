@@ -1,5 +1,5 @@
+DROP DATABASE IF EXISTS `shopprime`;
 CREATE SCHEMA IF NOT EXISTS `shopprime`;
-
 USE `shopprime`;
 
 CREATE TABLE `users` (
@@ -9,6 +9,7 @@ CREATE TABLE `users` (
     `password` VARCHAR(255) NOT NULL,
     `address` VARCHAR(255),
     `photo` VARCHAR(255),
+    `role` ENUM("USER", "ADMIN") DEFAULT 'USER',
     PRIMARY KEY (`id`)
 );
 
@@ -44,15 +45,10 @@ CREATE TABLE `products` (
 --     FOREIGN KEY (`id_produto`) REFERENCES `produtos`(`id`)
 -- );
 
-
--- INSERT INTO `users` (`email`, `name`, `password`) VALUES ('adm@adm.com','Administrador', '');
-
+INSERT INTO `users` (`email`, `name`, `password`) VALUES ('adm@adm.com','Administrador', '$2y$10$xTUSv/k4BovdEzJCnIKU3.U4KtfP2N3J3ajJzSRRJaKrpYMHOSfL.'); -- P@ssword
 
 INSERT INTO `categories` (id, name) VALUES
 (1, "Celular"),
 (2, "Assinaturas"),
 (3, "Jogos para Celular"),
 (4, "Jogos para Computador");
-
--- INSERT INTO `categorias_produtos` (`id_categoria`, `id_produto`)
--- VALUES (1, 1); -- Isso associaria o produto com ID 1 à categoria com ID 1

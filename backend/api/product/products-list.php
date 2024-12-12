@@ -2,6 +2,7 @@
 include_once '../../config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $response = [];
     $sql = "SELECT * FROM products";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();

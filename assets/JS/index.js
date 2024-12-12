@@ -19,7 +19,7 @@ submit.addEventListener("click", () => {
 
       if(res.status) {
         setTimeout(() => {
-            window.location.href = "admprodutos.html";
+            window.location.href = "admprodutos.php";
           }, 1000);
       }
     });
