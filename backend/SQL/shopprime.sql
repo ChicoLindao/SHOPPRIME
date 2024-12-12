@@ -45,7 +45,7 @@ CREATE TABLE `products` (
 --     FOREIGN KEY (`id_produto`) REFERENCES `produtos`(`id`)
 -- );
 
-INSERT INTO `users` (`email`, `name`, `password`) VALUES ('adm@adm.com','Administrador', '$2y$10$xTUSv/k4BovdEzJCnIKU3.U4KtfP2N3J3ajJzSRRJaKrpYMHOSfL.'); -- P@ssword
+INSERT INTO `users` (`email`, `name`, `password`, `role`) VALUES ('adm@adm.com','Administrador', '$2y$10$xTUSv/k4BovdEzJCnIKU3.U4KtfP2N3J3ajJzSRRJaKrpYMHOSfL.', "ADMIN"); -- P@ssword
 
 INSERT INTO `categories` (id, name) VALUES
 (1, "Celular"),
