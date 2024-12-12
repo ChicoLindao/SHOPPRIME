@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Estrutura para tabela `categories`
 --
 
+DROP DATABASE IF EXISTS shopprime;
+CREATE SCHEMA IF NOT EXISTS shopprime;
+USE shopprime;
+
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
@@ -91,8 +95,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `address`, `photo`, `role`) VALUES
-(1, 'adm@adm.com', 'Administrador', '$2y$10$xTUSv/k4BovdEzJCnIKU3.U4KtfP2N3J3ajJzSRRJaKrpYMHOSfL.', NULL, NULL, 'ADMIN'),
-(2, 'chicolima1996@gmail.com', 'FRANCISCO S LIMA', '$2y$10$CS37NaVb5wuKfqT8GXPUjOMIqaMlXHF/acZAKH0LKtZdEq19BiX2.', NULL, NULL, 'USER');
+(1, 'adm@adm.com', 'Administrador', '$2y$10$xTUSv/k4BovdEzJCnIKU3.U4KtfP2N3J3ajJzSRRJaKrpYMHOSfL.', NULL, NULL, 'ADMIN');
 
 --
 -- Índices para tabelas despejadas
