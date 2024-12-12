@@ -60,7 +60,7 @@ function renderProducts() {
       console.log(products);
   
       lista.innerHTML = "";
-      products.forEach((item) => {
+      products.forEach((item, i) => {
         lista.innerHTML += `
           <div class="produtos">
             <img src="${item.img}" alt="${item.name}" />
@@ -90,43 +90,36 @@ function renderProducts() {
 
       const botoesCarrinho = document.querySelectorAll(".botaoprodutos");
 
-      botoesCarrinho.forEach( (botao, i) => {
-          botao.addEventListener("click", () => {
-              let id = listaGiftCard[i].id;
-              let nome = listaGiftCard[i].nome;
-              let valor = listaGiftCard[i].valor;
-  
-              let carrinho = JSON.parse(localStorage.getItem("carrinho"));
-              if( carrinho == null) {
-                  carrinho = [];
-              }
-  
-              var total = 1;
-              var gift = {
-                  id,
-                  nome,
-                  valor,
-                  quant: total,
-              }
-  
-              function retorna() {
-                  let bool = false;
-                  carrinho.forEach( (item) => {
-                      if(item.id == id) {
-                          item["quant"] += 1;
-                          bool = true;
-                      }
-                  })
-                  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-                  return bool;   
-              }
-  
-              if(!retorna()) {
-                  carrinho.push(gift)
-                  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-              }
-              mensagem(`Produto adicionado ao carrinho!`);
-          })
-      })
+      botoesCarrinho.forEach((botao, index) => {
+        botao.addEventListener("click", () => {
+            const product = products[index];
+    
+            if (!product) {
+                console.log("Produto não encontrado.");
+                return;
+            }
+    
+            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    
+            const existingProduct = carrinho.find(item => item.id === product.id);
+    
+            if (existingProduct) {
+                existingProduct.quant += 1;
+            } else {
+                const newProduct = {
+                    id: product.id,
+                    nome: product.name,
+                    valor: product.price,
+                    quant: 1
+                };
+                carrinho.push(newProduct);
+            }
+    
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    
+            mensagem(`Produto "${product.name}" adicionado ao carrinho!`);
+        });
+    });
+    
     });
   }

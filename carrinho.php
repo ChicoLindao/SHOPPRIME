@@ -20,7 +20,6 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
     <title>Carrinho</title>
     <link rel="stylesheet" href="assets/CSS/carrinho.css">
     <link rel="stylesheet" href="assets/CSS/styles.css">
-    <script type="text/javascript" src="assets/JS/carrinho.js" async></script>
     <link rel="Website Icon" type="png" href="img/LOGO.png">
 </head>
 
@@ -87,6 +86,7 @@ Copyright © 2024 SHOPPRIME. All rights reserved.
         <p>&copy; 2024 SHOPPRIME | Todos os direitos reservados.</p>
         <p>Desenvolvido por Chico</p>
     </footer>
+    <script type="text/javascript" src="assets/JS/carrinho.js" async></script>
     <script type="text/javascript" src="assets/JS/scripts.js"></script>
 </body>
 </html>

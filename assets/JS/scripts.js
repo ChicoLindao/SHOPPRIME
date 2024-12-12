@@ -9,20 +9,12 @@ function mensagem(text) {
     }, 1000)
 }
 
-const ROTAS = {
-    index: "index.html",
-    assinaturas: "index.html",
-    index: "index.html",
-    index: "index.html",
-    index: "index.html",
-}
-
 const btnLogout = document.getElementById("logout");
 if(btnLogout) {
     console.log("Logout")
     btnLogout.addEventListener("click", (e) => {
         fetch("./backend/logout.php").then(async res => {
-            window.location.href = ROTAS.index;
+            window.location.href = index.html;
         })
     })
 }
